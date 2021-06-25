@@ -2,8 +2,8 @@ $(document).ready(function(){
 	var $imgs = $(".fader").find("img"),i = 0;
 	function changeImg(){
 		var next = (++i % $imgs.length);
-		$($imgs.get(next -1)).fadeOut(100);
-		$($imgs.get(next)).fadeIn(100);
+		$($imgs.get(next -1)).fadeOut(0);
+		$($imgs.get(next)).fadeIn(0);
 	}
 	var interval = setInterval(changeImg, 100);
 
