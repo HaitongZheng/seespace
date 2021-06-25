@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+      }
+
+      div#images{
+        height: 5000px;
+        z-index: 0;
+      }
+      img{
+        max-height: 80%;
+        width: auto;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+      }
+    </style>
+  </head>
+  <body>
+    <div id="images">
+      <img class="sequencer" src="./images/0.jpeg">
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="jquery-sequencer.min.js"></script>
+    <script>
+      $("div#images").sequencer({
+        count: 50,
+        path: "./images",
+        ext: "jpeg"
+      });
+    </script>
+  </body>
+</html>
