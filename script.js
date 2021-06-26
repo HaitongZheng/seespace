@@ -41,8 +41,8 @@ $(document).ready(function(){
 				$($imgs.get(next)).fadeIn(0);
 			}
 		}
-		$(document).on('touchmove', function() {
-    $(document).trigger('mousewheel');
-      });
 	});
+	$(document).on('scroll', function() {
+	$(document).trigger('mousewheel');
+});
 });
