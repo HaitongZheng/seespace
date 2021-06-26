@@ -15,9 +15,6 @@
   display: none;
   height:100%;
 }
-.selected{
-  height:80%;
-}
 
 @media screen {
 .col-1 {width: 8.33%;}
