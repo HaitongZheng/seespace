@@ -12,7 +12,7 @@
         z-index: 0;
       }
       img{
-        max-height: 100%;
+        min-height: 100%;
         width: auto;
         position: fixed;
         top: 50%;
@@ -43,7 +43,7 @@
 		$(".sequencer").on('click', function(){
 			if (click_num % 2 == 1) {
 				clearInterval(interval);
-				$(".fader > img").css("height","80%");
+				$(".fader > img").css("height","60%");
 				$(".fader").css({"margin-left" : "20%", "margin-top":"25%"});
 				$(".fader > img").on("tap",function(){
 					$(this).hide();
