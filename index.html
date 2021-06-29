@@ -1,34 +1,66 @@
-<html lang="en">
-<head>
-  <title>See Space</title>
-  <link rel="icon" href="img/logo.jpeg">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="style.css">
-  <script src="jquery-3.6.0.min.js"></script>
-  <script src="./touchEvent.js"></script>
-  <script type="text/javascript" src="script.js"></script>
-</head>
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+      }
 
-<body>
-    <div class="fader">
-      <img src="img/img00001.jpeg" style="display: block;">
-      <img src="img/img00002.jpeg">
-      <img src="img/img00003.jpeg">
-      <img src="img/img00004.jpeg">
-      <img src="img/img00005.jpeg">
-      <img src="img/img00006.jpeg">
-      <img src="img/img00007.jpeg">
-      <img src="img/img00008.jpeg">
-      <img src="img/img00009.jpeg">
-      <img src="img/img00010.jpeg">
-      <img src="img/img00011.jpeg">
-      <img src="img/img00012.jpeg">
-      <img src="img/img00013.jpeg">
-      <img src="img/img00014.jpeg">
-      <img src="img/img00015.jpeg">
-      <img src="img/img00016.jpeg">
-      <img src="img/img00017.jpeg">
+      div#images{
+        height: 5000px;
+        z-index: 0;
+      }
+      img{
+        max-height: 100%;
+        width: auto;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+      }
+    </style>
+  </head>
+  <body>
+    <div id="images" class="fader">
+      <img class="sequencer" src="./images/0.jpeg">
     </div>
-</body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="jquery-sequencer.min.js"></script>
+    <script>
+		var pos = 0;
+		var click_num = 1;
+		var $imgs = $(".fader").find("img"),i = 0;
+		function changeImg(){
+			$(".sequencer").attr("src","./images/"+pos+".jpeg");
+			pos +=1;
+			if(pos ==50){
+				pos = 0;
+			}
+		}
+		var interval = setInterval(changeImg, 100);
+
+		$(".sequencer").on('click', function(){
+			if (click_num % 2 == 1) {
+				clearInterval(interval);
+				$(".fader > img").css("height","80%");
+				$(".fader").css({"margin-left" : "20%", "margin-top":"25%"});
+				$(".fader > img").on("tap",function(){
+					$(this).hide();
+				});
+			}else{
+				$(".fader > img").css("height","100%");
+				$(".fader").css("margin","0");
+				interval = setInterval(changeImg, 100);
+			};
+			click_num++;
+		});
+
+		$("div#images").sequencer({
+			count: 49,
+			path: "./images",
+			ext: "jpeg"
+		});
+    </script>
+  </body>
 </html>
