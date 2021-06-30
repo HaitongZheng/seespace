@@ -29,13 +29,15 @@
     <script type="text/javascript" src="jquery-sequencer.min.js"></script>
     <script>
     $(".fader > img").css("height","100%");
+
 		var pos = 0;
 		var click_num = 1;
 		var $imgs = $(".fader").find("img"),i = 0;
+
 		function changeImg(){
 			$(".sequencer").attr("src","./images/"+pos+".jpeg");
-			pos +=1;
-			if(pos ==50){
+			pos += 1;
+			if(pos == 304){
 				pos = 0;
 			}
 		}
@@ -58,7 +60,7 @@
 		});
 
 		$("div#images").sequencer({
-			count: 49,
+			count: 304,
 			path: "./images",
 			ext: "jpeg"
 		});
