@@ -19,17 +19,22 @@
         left: 50%;
         transform: translate(-50%, -50%)
       }
+
+      #video305{
+        position:fixed;
+        z-index:10000;
+      }
     </style>
   </head>
   <body>
     <div id="images" class="fader">
       <img class="sequencer" src="./images/0.jpeg">
+      <!-- <video id="video305" width="800" controls><source src="./images/305.mp4" type="video/mp4"></video> -->
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="jquery-sequencer.min.js"></script>
+    <script type="text/javascript" src="jquery-sequencer.min.js" ></script>
     <script>
     $(".fader > img").css("height","100%");
-
 		var pos = 0;
 		var click_num = 1;
 		var $imgs = $(".fader").find("img"),i = 0;
@@ -39,7 +44,7 @@
 			pos += 1;
 			if(pos == 304){
 				pos = 0;
-			}
+      }
 		}
 		var interval = setInterval(changeImg, 100);
 
@@ -64,6 +69,7 @@
 			path: "./images",
 			ext: "jpeg"
 		});
+
     </script>
   </body>
 </html>
